@@ -1,4 +1,4 @@
-package slogmanager
+package main
 
 import (
 	"bytes"

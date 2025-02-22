@@ -1,6 +1,6 @@
 // Package slogmanager provides a centralized logging management system using slog.
 // It supports multiple writers and concurrent access to logging facilities.
-package slogmanager
+package main
 
 import (
 	"log/slog"
