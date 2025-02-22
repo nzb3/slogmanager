@@ -32,6 +32,7 @@ package main
 import (
 	"bytes"
 	"github.com/nzb3/slogmanager"
+	"log/slog"
 )
 
 func main() {
@@ -41,8 +42,7 @@ func main() {
 	consoleWriter := slogmanager.NewWriter(&bytes.Buffer{}, slogmanager.WithTextFormat())
 	manager.AddWriter("console", consoleWriter)
 	
-	logger := manager.Logger()
-	logger.Info("System initialized", "status", "ready")
+	slog.Info("System initialized", "status", "ready")
 }
 ```
 
@@ -55,7 +55,7 @@ jsonWriter := slogmanager.NewWriter(
     slogmanager.WithJSONFormat(),
 )
 manager.AddWriter("json-output", jsonWriter)
-
+slog.Info("System initialized", "status", "ready")
 // Output:
 // {"time":"2025-02-22T23:49:00Z","level":"INFO","msg":"Data processed","items":42}
 ```
@@ -69,23 +69,10 @@ textWriter := slogmanager.NewWriter(
     slogmanager.WithTextFormat(),
 )
 manager.AddWriter("text-output", textWriter)
-
+slog.Info("System initialized", "status", "ready")
 // Output:
 // 2025/02/22 23:49:00 INFO request completed method=GET duration=150ms
 ```
-
-
-##  Logging
-
-```go
-func main() {
-	manager := slogmanager.New()
-	manager.AddWriter("concurrent", slogmanager.NewWriter(&bytes.Buffer{}))
-	
-	slog.Debug("Worker started", "id", 10)
-}
-```
-
 
 ## Configuration Options
 
