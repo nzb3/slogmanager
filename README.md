@@ -9,7 +9,7 @@ A Go library providing enhanced `slog` logging management with support for multi
 ## Features
 
 - **Multiple Writers**: Configure different outputs (console, files, buffers)
-- **Concurrent-Safe**: Thread-safe operations using RWMutex
+- **Concurrent-Safe**: Thread-safe writer operations
 - **Format Support**: JSON and text logging formats
 - **Dynamic Configuration**: Add/remove writers at runtime
 - **Handler Customization**: Create custom handlers for specialized logging
@@ -55,6 +55,7 @@ jsonWriter := slogmanager.NewWriter(
     slogmanager.WithJSONFormat(),
 )
 manager.AddWriter("json-output", jsonWriter)
+
 slog.Info("System initialized", "status", "ready")
 // Output:
 // {"time":"2025-02-22T23:49:00Z","level":"INFO","msg":"Data processed","items":42}
@@ -69,6 +70,7 @@ textWriter := slogmanager.NewWriter(
     slogmanager.WithTextFormat(),
 )
 manager.AddWriter("text-output", textWriter)
+
 slog.Info("System initialized", "status", "ready")
 // Output:
 // 2025/02/22 23:49:00 INFO request completed method=GET duration=150ms
