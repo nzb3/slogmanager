@@ -2,10 +2,9 @@
 
 ---
 
-**Concurrent-Safe Slog Manager with Multiple Writers**
+**Concurrent-Safe Manager for Slog with Multiple Writers**
 
-A Go library providing enhanced `slog` logging management with support for multiple output formats and concurrent access.
-
+A Go library providing simple writers setup for Slog
 ## Features
 
 - **Multiple Writers**: Configure different outputs (console, files, buffers)
