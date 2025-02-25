@@ -1,6 +1,6 @@
 // Package writer provides a customizable writer implementation for structured logging
 // with support for both JSON and text formats using the slog package.
-package main
+package slogmnager
 
 import (
 	"io"
